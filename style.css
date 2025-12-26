@@ -337,22 +337,21 @@ section.visible {
     text-align: center;
     padding: 50px 20px;
 }
-.project-container {
+.project-container{
     display: flex;
     flex-wrap: wrap;
-    justify-content: center; /* centers all project cards evenly */
-    gap: 20px; /* spacing between cards */
 }
-
+/* Project Card */
 .project {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    position: relative;
+    background: #112240;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0px 4px 15px rgba(0, 255, 170, 0.2);
     max-width: 350px;
-    min-height: 400px; /* ensures all cards same height */
-    margin: 20px;
+    margin: 20px auto;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
-
 
 /* Project Image */
 .project img {
