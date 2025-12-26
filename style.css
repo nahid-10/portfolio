@@ -357,13 +357,11 @@ section.visible {
 /* Project Image */
 .project img {
     width: 100%;
-    height: 200px;
-    object-fit: cover; /* prevents stretching or blank spaces */
+    height: auto;
+    display: block;
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
 }
-.project {
-    margin: 20px; /* spacing is controlled by flex gap */
-}
-
 
 /* Overlay Effect */
 .project-info {
