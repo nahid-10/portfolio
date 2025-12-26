@@ -337,30 +337,33 @@ section.visible {
     text-align: center;
     padding: 50px 20px;
 }
-.project-container{
+.project-container {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center; /* centers all project cards evenly */
+    gap: 20px; /* spacing between cards */
 }
-/* Project Card */
+
 .project {
-    position: relative;
-    background: #112240;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0px 4px 15px rgba(0, 255, 170, 0.2);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     max-width: 350px;
-    margin: 20px auto;
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    min-height: 400px; /* ensures all cards same height */
+    margin: 20px;
 }
+
 
 /* Project Image */
 .project img {
     width: 100%;
-    height: auto;
-    display: block;
-    border-radius: 10px;
-    transition: transform 0.3s ease-in-out;
+    height: 200px;
+    object-fit: cover; /* prevents stretching or blank spaces */
 }
+.project {
+    margin: 20px; /* spacing is controlled by flex gap */
+}
+
 
 /* Overlay Effect */
 .project-info {
