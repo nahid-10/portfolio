@@ -45,7 +45,7 @@ export default function SectionWrapper({
       className={`section-padding max-w-7xl mx-auto ${className}`}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, margin: "-60px", amount: 0.05, fallbackInView: true }}
+      viewport={{ once: true, margin: "-60px", amount: 0.05 }}
       variants={containerVariants}
     >
       {children}

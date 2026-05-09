@@ -114,6 +114,7 @@ export default function Contact() {
                     onChange={handleChange}
                     placeholder="Your Name"
                     className={`${inputBase} ${errors.name ? inputError : inputNormal}`}
+                    suppressHydrationWarning
                   />
                   {errors.name && (
                     <p className="mt-1 text-xs text-red-400">{errors.name}</p>
@@ -127,6 +128,7 @@ export default function Contact() {
                     onChange={handleChange}
                     placeholder="Your Email"
                     className={`${inputBase} ${errors.email ? inputError : inputNormal}`}
+                    suppressHydrationWarning
                   />
                   {errors.email && (
                     <p className="mt-1 text-xs text-red-400">{errors.email}</p>
@@ -140,6 +142,7 @@ export default function Contact() {
                     placeholder="Your Message"
                     rows={5}
                     className={`${inputBase} ${errors.message ? inputError : inputNormal} resize-none`}
+                    suppressHydrationWarning
                   />
                   {errors.message && (
                     <p className="mt-1 text-xs text-red-400">{errors.message}</p>
