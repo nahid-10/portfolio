@@ -11,7 +11,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23007acc'/%3E%3Ctext x='50' y='68' font-size='58' text-anchor='middle' fill='white' font-family='monospace'%3E%3C/%3E%3C/text%3E%3C/svg%3E">
-<link rel="stylesheet" href="./style.css?v=11">
+<link rel="stylesheet" href="./style.css?v=12">
 </head>
 <body>
 <div class="ide">
@@ -171,7 +171,7 @@
                     <li>Led QA initiatives for <b>VLM Run</b> and <b>E-Mistri</b>, while contributing as a QA Engineer on <b>Kinki Management System</b>, a project for a Japanese client — authoring 500+ test cases and identifying 200+ defects across the three engagements.</li>
                     <li>Managed end-to-end testing for VLM Run — functional, UI, exploratory, and regression — uncovering <b>100+ defects</b> across complex AI workflows and Model Context Protocol (MCP) integrations with Claude.</li>
                     <li>Led mobile and web QA for E-Mistri's dual-app ecosystem, authoring <b>200+ test cases</b> and surfacing <b>60+ defects</b> across booking workflows, user authentication, and service tracking.</li>
-                    <li>Performed load and performance testing with k6 on core platform features to verify system stability and surface scalability limits under heavy traffic.</li>
+                    <li>Ran a six-stage k6 load test against core platform features, ramping traffic from light to breaking-point load to map the platform's real concurrency threshold before failures climbed.</li>
                     <li>Automated UI workflows with Playwright and validated REST APIs with Postman &amp; Swagger, integrating the Playwright suite into <b>GitHub Actions CI/CD</b> to run automatically on every push and pull request.</li>
                   </ul>
                   <div class="pm-resp"><span class="code">200 OK</span> response verified · in production</div>
@@ -342,6 +342,25 @@
                   </table>
                 </div>
               </div>
+            </div>
+
+            <div class="artifact-block">
+              <div class="artifact-head">
+                <span class="artifact-tag">QA-150 evidence</span>
+                <span class="artifact-note">Real k6 load test against the VLM Run Gateway — six stages of ramping traffic against the live audio, chat, OCR, embeddings, and image/video endpoints. Trend shown below, not exact production figures — happy to walk through the full report in an interview.</span>
+              </div>
+              <div class="artifact-card load-test-card">
+                <div class="artifact-card-head">LOAD TEST · 6-STAGE RAMP</div>
+                <table class="artifact-table">
+                  <tr><td>Light</td><td>Baseline traffic — zero failures</td></tr>
+                  <tr><td>Moderate</td><td>Roughly 7&times; baseline traffic — still zero failures</td></tr>
+                  <tr><td>Heavier</td><td>First failures appear</td></tr>
+                  <tr><td>High</td><td>Failure rate creeps up across multiple endpoints, not just the slowest one</td></tr>
+                  <tr><td>Overload</td><td>Failures rise sharply; rate-limiting kicks in</td></tr>
+                  <tr><td>Breaking point</td><td>Majority of calls fail or get rate-limited</td></tr>
+                </table>
+              </div>
+              <p class="artifact-bottomline">Bottom line: the ramp mapped a clear concurrency threshold where failure rates start climbing, and a sharper cliff further out where the gateway can no longer keep up — giving the team a real, evidence-based capacity boundary instead of a guess.</p>
             </div>
 
             <div class="artifact-block">

@@ -548,6 +548,11 @@ button { font-family: var(--mono); cursor: pointer; }
   .artifact-table td:first-child { width: 40%; white-space: normal; }
 }
 
+.load-test-card { max-width: 640px; }
+.artifact-bottomline {
+  margin-top: 12px; font-size: 13px; color: #bbb; line-height: 1.6;
+  max-width: 720px;
+}
 .strategy-card {
   background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius);
   padding: 18px 22px;
