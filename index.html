@@ -1,272 +1,526 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Md Nahid Hossain</title>
-    <link rel="stylesheet" href="./style.css">
-    <script defer src="./scripts.js"></script> 
+<meta charset="UTF-8">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Md Nahid Hossain — QA Engineer</title>
+<meta name="description" content="Md Nahid Hossain — QA Engineer specializing in manual, API, automation and performance testing for web and AI/VLM applications.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23007acc'/%3E%3Ctext x='50' y='68' font-size='58' text-anchor='middle' fill='white' font-family='monospace'%3E%3C/%3E%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="./style.css?v=10">
 </head>
-
 <body>
-    <header id="main-header">
-        <nav>
-            <!-- Hamburger Menu Icon -->
-            <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
+<div class="ide">
 
-            <ul id="menu">
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+  <!-- titlebar -->
+  <div class="titlebar">
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle explorer">&#9776;</button>
+    <div class="traffic-lights"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+    <div class="titlebar-search">
+      <div class="titlebar-search-inner">nahid-portfolio <span class="kbd">Ctrl P</span></div>
+    </div>
+  </div>
 
-    <section id="hero">
-        <img src="./assets/profile.jpg" alt="nahid" class="hero-image about-image" />
-        <h2>Hi, I'm Md Nahid Hossain</h2>
-        <p>AI-Driven Problem Solver — Specializing in SQA, Data Analysis, and LLM Applications</p>
-        <div style="display: flex; gap: 15px;">
-            <a href="#projects" class="btn"
-                style="background-color: linear-gradient(45deg, #FF4081, #FFA726); color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px;">View
-                My Work</a>
-            <a href="https://drive.google.com/file/d/13-bIlRVUEFDZ3lL6Ku439sIpkEIvNedL/view?usp=drive_link" target="_blank" class="btn"
-                style="background-color: #28a745; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px;">See
-                my Resume</a> 
-        </div>
+  <div class="ide-body">
 
-    </section>
+    <!-- activity bar -->
+    <div class="activitybar">
+      <div class="a-icon active" title="Explorer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg></div>
+      <div class="a-icon" title="Search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></div>
+      <div class="a-icon" title="Source Control"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="6" y1="3" x2="6" y2="15"></line><circle cx="18" cy="6" r="3"></circle><circle cx="6" cy="18" r="3"></circle><path d="M18 9a9 9 0 0 1-9 9"></path></svg><span class="badge">3</span></div>
+      <div class="a-icon" title="Run &amp; Test"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6 3 20 12 6 21 6 3"></polygon></svg></div>
+      <div class="a-icon" title="Extensions"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg></div>
+      <div class="spacer"></div>
+      <div class="a-icon" title="Account"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg></div>
+    </div>
 
+    <!-- sidebar -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-title">EXPLORER</div>
+      <div class="tree">
+        <div class="tree-root">&#9660; PORTFOLIO</div>
+        <div class="tree-folder">&#9660; src</div>
+        <div class="tree-file active" data-target="home"><span class="dot ext-ts">TS</span> home.tsx</div>
+        <div class="tree-file" data-target="about"><span class="dot ext-js">JS</span> about.test.js</div>
+        <div class="tree-file" data-target="experience"><span class="dot ext-json">{}</span> experience.postman_collection.json</div>
+        <div class="tree-file" data-target="projects"><span class="dot ext-jira">◆</span> projects.board.jira</div>
+        <div class="tree-file" data-target="skills"><span class="dot ext-json">{}</span> skills.json</div>
+        <div class="tree-file" data-target="certifications"><span class="dot ext-yml">Y</span> certifications.yml</div>
+        <div class="tree-file" data-target="contact"><span class="dot ext-css">#</span> contact.css</div>
+        <div class="tree-file" data-target="home" style="margin-left:10px;"><span class="dot ext-md">M</span> README.md</div>
+        <a class="tree-file download" href="./assets/Md_Nahid_Hossain_Qa_Resume.pdf" download style="margin-left:10px;"><span class="dot ext-pdf">&#8681;</span> Md_Nahid_Hossain_Qa_Resume.pdf</a>
+      </div>
+    </aside>
 
-    <section id="about">
-        <h2 class="section-title">About Me</h2>
-        <div class="about-container">
+    <!-- editor -->
+    <div class="editor">
+      <div class="tabbar" id="tabbar">
+        <div class="tab active" data-target="home">&#9689; home.tsx <span class="tab-close">&times;</span></div>
+        <div class="tab" data-target="about">&#9689; about.test.js <span class="tab-close">&times;</span></div>
+        <div class="tab" data-target="experience">&#123;&#125; experience.postman_collection.json <span class="tab-close">&times;</span></div>
+        <div class="tab" data-target="projects">&#9670; projects.board.jira <span class="tab-close">&times;</span></div>
+        <div class="tab" data-target="skills">&#123;&#125; skills.json <span class="tab-close">&times;</span></div>
+        <div class="tab" data-target="certifications">Y certifications.yml <span class="tab-close">&times;</span></div>
+        <div class="tab" data-target="contact">&#35; contact.css <span class="tab-close">&times;</span></div>
+      </div>
+      <div class="breadcrumb">portfolio &gt; src &gt; <span class="current" id="crumbFile">home.tsx</span></div>
 
-            <!-- Left Column -->
-            <div class="about-left">
-                <img src="./assets/profile.jpg" alt="Md Nahid Hossain" class="about-image" />
-                <h3 class="name">Md Nahid Hossain</h3>
-                <h4>Dept of CSE, <br>Comilla University</h4>
-                <p class="contact-info">
-                    📧 <a href="mailto:nahihd@example.com">nahidhossainmd99@gmail.com</a>
+      <div class="editor-scroll" id="editorScroll">
+        <div class="gutter" id="gutter"></div>
+
+        <div class="content">
+
+          <!-- ============ HOME ============ -->
+          <section id="home" class="file-section" data-file="home.tsx">
+            <div class="code-comment head">// home.tsx — first render, first impression, zero known flaky tests</div>
+            <div class="hero-badge"><span class="pulse"></span> status: open to QA opportunities</div>
+
+            <h1 class="hero-name">Md Nahid Hossain</h1>
+            <div class="hero-role">Junior QA Engineer — Manual · API · Automation · Performance</div>
+
+            <div class="hero-row">
+              <div class="hero-photo-card">
+                <img src="./assets/profile.jpg" alt="Md Nahid Hossain" class="hero-photo">
+              </div>
+              <div class="hero-text-card">
+                <p class="hero-desc">
+                  I test the things people trust: AI/VLM agents and MCP integrations, REST APIs, and the
+                  web platforms and mobile apps people actually touch. If it can break in production, I'd rather it broke in front of me first.
                 </p>
-                <p class="contact-info">
-                    📞 <a href="tel:+880123456789">+880 1704788032</a>
-                </p>
+                <div class="btn-row">
+                  <a href="#projects" class="btn btn-primary" data-target="projects">&#9654; View Projects</a>
+                  <a href="./assets/Md_Nahid_Hossain_Qa_Resume.pdf" download class="btn btn-postman">&#8681; Download Résumé</a>
+                  <a href="#contact" class="btn btn-ghost" data-target="contact">Get in Touch</a>
+                </div>
+              </div>
             </div>
 
-            <!-- Right Column -->
-            
-            <div class="about-right">
-                <h3 class="about-heading">Passionate About</h3>
-                    <ul class="about-list">
-                <li>Ensuring software quality through systematic testing</li>
-                <li>Manual testing, defect detection, and bug analysis</li>
-                <li>API testing and validation of backend services</li>
-                <li>Learning and applying test automation using Python</li>
-                    </ul>
+            <div class="stat-row">
+              <div class="stat-chip"><span class="n">200+</span><span class="l">defects found in client projects</span></div>
+              <div class="stat-chip"><span class="n">500+</span><span class="l">test cases authored</span></div>
+              <div class="stat-chip"><span class="n">800+</span><span class="l">algorithmic problems solved</span></div>
+              <div class="stat-chip"><span class="n">3.57</span><span class="l">CGPA · CSE, Comilla University</span></div>
+            </div>
+          </section>
 
-                <h3 class="about-heading">Areas of Interest</h3>
-                    <ul class="about-list">
-                <li>Test case design, test execution, and defect reporting</li>
-                <li>API testing using Postman and automated assertions</li>
-                <li>Performance testing and system reliability analysis</li>
-                <li>Improving user experience through quality assurance</li>
-                    </ul>
+          <!-- ============ ABOUT ============ -->
+          <section id="about" class="file-section" data-file="about.test.js">
+            <div class="code-comment head">// about.test.js — the one suite I can't fully automate</div>
+            <h2 class="h-title">About Me</h2>
+            <div class="h-sub"><span class="kw">describe</span>(<span class="str">'Md Nahid Hossain'</span>, () =&gt; { ... })</div>
+
+            <div class="about-grid">
+              <div class="about-photo-card">
+                <img src="./assets/profile.jpg" alt="Md Nahid Hossain">
+                <div class="about-photo-caption"><span>profile.jpg</span><span>&#128269; view</span></div>
+              </div>
+              <div class="about-text-card">
+                <p><span class="assert">it</span>(<span class="str">'ensures software quality before users find the bugs'</span>, () =&gt; {}</p>
+                <p>Hi, I'm <b>Nahid</b> — a Junior QA Engineer at <b>Nymph Solution Ltd.</b>, where I test
+                  <span class="accent">VLM Run</span> (an AI/VLM platform) and <b>E-Mistri</b>, an on-demand
+                  service marketplace with separate Client and Service Provider apps, while also contributing
+                  QA on <b>Kinki Management System</b>, a project for a Japanese client. I care about the gap
+                  between "it works on my machine" and "it works when a real user is confused, in a hurry,
+                  and on bad wifi."</p>
+                <p>Before this, I mentored SQA students at <b>IT Training BD</b>, and I spend a
+                  disproportionate amount of free time on <a href="https://codeforces.com/profile/huzaifa-24" target="_blank" rel="noopener">Codeforces</a>, mostly to keep my debugging instincts sharp.</p>
+              </div>
             </div>
 
+            <div class="focus-title">CURRENT FOCUS</div>
+            <div class="focus-grid">
+              <div class="focus-col a">
+                <ul>
+                  <li>Validating AI/VLM workflows &amp; MCP integrations with Claude</li>
+                  <li>Load &amp; performance testing with k6 across Gateway/Billing modules</li>
+                  <li>Mobile + web QA for E-Mistri's dual-app booking ecosystem</li>
+                </ul>
+              </div>
+              <div class="focus-col b">
+                <ul>
+                  <li>Manual test case design &amp; full defect lifecycle management</li>
+                  <li>UI automation with Playwright, Pytest &amp; the Page Object Model</li>
+                  <li>REST API validation with Postman, Newman &amp; Swagger</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <!-- ============ EXPERIENCE (Postman style) ============ -->
+          <section id="experience" class="file-section" data-file="experience.postman_collection.json">
+            <div class="code-comment head">// experience.postman_collection.json — a job history that keeps returning 200 OK</div>
+            <h2 class="h-title">Experience</h2>
+            <div class="h-sub">a collection of jobs, run in chronological order</div>
+
+            <div class="pm-toolbar"><span class="pm-dot"></span> Career.postman_collection <span style="margin-left:auto;">v2.1 · 3 folders</span></div>
+            <div class="pm-body">
+
+              <div class="pm-folder">
+                <div class="pm-folder-head"><span class="folder-icon">&#128193;</span> Nymph Solution Ltd. <span class="status-live"><span class="pulse"></span> ACTIVE</span></div>
+                <div class="pm-req">
+                  <div class="pm-req-line">
+                    <span class="method get">GET</span>
+                    <span class="pm-path">/junior-qa-engineer</span>
+                    <span class="dates">Jun 2026 – Present</span>
+                  </div>
+                  <ul class="pm-body-list">
+                    <li>Led QA initiatives for <b>VLM Run</b> and <b>E-Mistri</b>, while contributing as a QA Engineer on <b>Kinki Management System</b>, a project for a Japanese client — authoring 500+ test cases and identifying 200+ defects across the three engagements.</li>
+                    <li>Managed end-to-end testing for VLM Run — functional, UI, exploratory, and regression — uncovering <b>100+ defects</b> across complex AI workflows and Model Context Protocol (MCP) integrations with Claude.</li>
+                    <li>Led mobile and web QA for E-Mistri's dual-app ecosystem, authoring <b>200+ test cases</b> and surfacing <b>60+ defects</b> across booking workflows, user authentication, and service tracking.</li>
+                    <li>Performed load and performance testing with k6 on core platform features to verify system stability and surface scalability limits under heavy traffic.</li>
+                    <li>Automated UI workflows with Playwright and validated REST APIs with Postman &amp; Swagger, integrating the Playwright suite into <b>GitHub Actions CI/CD</b> to run automatically on every push and pull request.</li>
+                  </ul>
+                  <div class="pm-resp"><span class="code">200 OK</span> response verified · in production</div>
+                </div>
+              </div>
+
+              <div class="pm-folder">
+                <div class="pm-folder-head"><span class="folder-icon">&#128193;</span> IT Training BD <span class="status-done">COMPLETED</span></div>
+                <div class="pm-req">
+                  <div class="pm-req-line">
+                    <span class="method post">POST</span>
+                    <span class="pm-path">/sqa-project-instructor</span>
+                    <span class="dates">Feb 2026 – May 2026</span>
+                  </div>
+                  <ul class="pm-body-list">
+                    <li>Mentored and instructed students through hands-on SQA projects, covering industry-standard manual, API, automation, and performance testing methodologies.</li>
+                  </ul>
+                  <div class="pm-resp"><span class="code">200 OK</span> cohort feedback: positive</div>
+                </div>
+              </div>
+
+              <div class="pm-folder">
+                <div class="pm-folder-head"><span class="folder-icon">&#128193;</span> CodeAlpha (Remote) <span class="status-done">COMPLETED</span></div>
+                <div class="pm-req">
+                  <div class="pm-req-line">
+                    <span class="method get">GET</span>
+                    <span class="pm-path">/python-intern</span>
+                    <span class="dates">Dec 2025 – Jan 2026</span>
+                  </div>
+                  <ul class="pm-body-list">
+                    <li>Built automated data validation scripts in Python and Pandas to catch accuracy and consistency issues before they reached downstream reports.</li>
+                  </ul>
+                  <div class="pm-resp"><span class="code">200 OK</span> internship complete</div>
+                </div>
+              </div>
+
+            </div>
+          </section>
+
+          <!-- ============ PROJECTS (Jira board) ============ -->
+          <section id="projects" class="file-section" data-file="projects.board.jira">
+            <div class="code-comment head">// projects.board.jira — every ticket here shipped, not just scoped</div>
+            <h2 class="h-title">Projects</h2>
+            <div class="jira-toolbar">
+              <div class="jira-logo"><span class="sq"></span> QA Board</div>
+              <span class="board-name">Project: PORTFOLIO &nbsp;·&nbsp; Sprint 12</span>
+            </div>
+
+            <div class="board">
+              <div class="board-col">
+                <div class="board-col-head">BACKLOG <span class="count">2</span></div>
+
+                <div class="ticket">
+                  <div class="ticket-id">QA-201 <span class="prio" title="Low priority">&#128992;</span></div>
+                  <div class="ticket-title">Sports Performance Analysis</div>
+                  <div class="ticket-desc">Scraped &amp; analyzed football data with Python/Plotly to surface top scorers and young talent.</div>
+                  <div class="ticket-labels"><span class="label">Python</span><span class="label">Web Scraping</span><span class="label">Plotly</span></div>
+                  <div class="ticket-foot">
+                    <a class="ticket-link" href="https://github.com/nahid-10/sports-analysis-project" target="_blank" rel="noopener">&#128279; GitHub</a>
+                    <span class="avatar">MN</span>
+                  </div>
+                </div>
+
+                <div class="ticket">
+                  <div class="ticket-id">QA-202 <span class="prio" title="Low priority">&#128992;</span></div>
+                  <div class="ticket-title">AI Chatbot using LLM</div>
+                  <div class="ticket-desc">Book-based chatbot built with LangChain, FAISS, and Hugging Face models.</div>
+                  <div class="ticket-labels"><span class="label">LangChain</span><span class="label">FAISS</span><span class="label">HuggingFace</span></div>
+                  <div class="ticket-foot">
+                    <a class="ticket-link" href="https://github.com/nahid-10" target="_blank" rel="noopener">&#128279; GitHub</a>
+                    <span class="avatar">MN</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="board-col">
+                <div class="board-col-head">IN PROGRESS <span class="count">1</span></div>
+
+                <div class="ticket">
+                  <div class="ticket-id">QA-150 <span class="prio" title="High priority">&#128308;</span></div>
+                  <div class="ticket-title">VLM Run — AI/VLM Application Testing</div>
+                  <div class="ticket-desc">End-to-end testing across Gateway, Skills, Billing &amp; API workflows — <b>100+ defects</b> identified so far — plus k6 load testing for throughput, error rates and response times.</div>
+                  <div class="ticket-labels"><span class="label">MCP</span><span class="label">Claude</span><span class="label">k6</span><span class="label">API</span></div>
+                  <div class="ticket-foot">
+                    <a class="ticket-link" href="https://vlm.run" target="_blank" rel="noopener">&#128279; Project site</a>
+                    <span class="avatar">MN</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="board-col">
+                <div class="board-col-head">DONE <span class="count">4</span></div>
+
+                <div class="ticket">
+                  <div class="ticket-id">QA-101 <span class="prio" title="Medium priority">&#128993;</span></div>
+                  <div class="ticket-title">End-to-End Automation Framework</div>
+                  <div class="ticket-desc">Scalable UI automation with Playwright, Pytest &amp; the Page Object Model, wired into GitHub Actions CI/CD — runs on every push and pull request, uploading report artifacts.</div>
+                  <div class="ticket-labels"><span class="label">Playwright</span><span class="label">Pytest</span><span class="label">POM</span><span class="label">CI/CD</span></div>
+                  <div class="ticket-foot">
+                    <span class="ticket-links">
+                      <a class="ticket-link" href="https://github.com/nahid-10/end_to_end_testing_framework_playwright/actions" target="_blank" rel="noopener">&#9881; CI runs</a>
+                      <a class="ticket-link" href="https://github.com/nahid-10/end_to_end_testing_framework_playwright" target="_blank" rel="noopener">&#128279; GitHub</a>
+                    </span>
+                    <span class="avatar">MN</span>
+                  </div>
+                </div>
+
+                <div class="ticket">
+                  <div class="ticket-id">QA-102 <span class="prio" title="Medium priority">&#128993;</span></div>
+                  <div class="ticket-title">Manual Testing — nopCommerce</div>
+                  <div class="ticket-desc">Authored &amp; executed 100+ test cases for functional, smoke and regression scenarios; managed the defect lifecycle end to end.</div>
+                  <div class="ticket-labels"><span class="label">Manual</span><span class="label">Regression</span><span class="label">Smoke</span></div>
+                  <div class="ticket-foot">
+                    <a class="ticket-link" href="https://github.com/nahid-10/manual_software_testing_nopCommerce" target="_blank" rel="noopener">&#128279; GitHub</a>
+                    <span class="avatar">MN</span>
+                  </div>
+                </div>
+
+                <div class="ticket">
+                  <div class="ticket-id">QA-103 <span class="prio" title="Medium priority">&#128993;</span></div>
+                  <div class="ticket-title">API &amp; Performance Testing Suites</div>
+                  <div class="ticket-desc">Automated API suites with dynamic data &amp; assertions in Postman/Newman; simulated concurrent traffic in k6 for baseline thresholds.</div>
+                  <div class="ticket-labels"><span class="label">Postman</span><span class="label">Newman</span><span class="label">k6</span></div>
+                  <div class="ticket-foot">
+                    <a class="ticket-link" href="https://github.com/nahid-10/API_testing_using_POSTMAN" target="_blank" rel="noopener">&#128279; GitHub</a>
+                    <span class="avatar">MN</span>
+                  </div>
+                </div>
+
+                <div class="ticket">
+                  <div class="ticket-id">QA-104 <span class="prio" title="Low priority">&#128992;</span></div>
+                  <div class="ticket-title">Performance Testing — JMeter</div>
+                  <div class="ticket-desc">Load &amp; stress testing with Apache JMeter to analyze system performance and pinpoint bottlenecks.</div>
+                  <div class="ticket-labels"><span class="label">JMeter</span><span class="label">Load Testing</span></div>
+                  <div class="ticket-foot">
+                    <a class="ticket-link" href="https://github.com/nahid-10/performance_testing_using_jmeter" target="_blank" rel="noopener">&#128279; GitHub</a>
+                    <span class="avatar">MN</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="artifact-block">
+              <div class="artifact-head">
+                <span class="artifact-tag">QA-102 evidence</span>
+                <span class="artifact-note">Illustrative sample of the format I use to document a test case and its resulting defect — not a live screenshot. Happy to walk through real defect logs from this project in an interview.</span>
+              </div>
+              <div class="artifact-cols">
+                <div class="artifact-card">
+                  <div class="artifact-card-head">TEST CASE · TC-114</div>
+                  <table class="artifact-table">
+                    <tr><td>Title</td><td>Guest user adds an in-stock item to cart from the category listing page</td></tr>
+                    <tr><td>Preconditions</td><td>No active session · category has ≥1 in-stock product</td></tr>
+                    <tr><td>Steps</td><td>1. Open a category page &nbsp;2. Click "Add to cart" on a listed product &nbsp;3. Check the cart icon count</td></tr>
+                    <tr><td>Expected</td><td>Cart count increments immediately; confirmation banner shown</td></tr>
+                    <tr><td>Priority</td><td>High — primary purchase path</td></tr>
+                  </table>
+                </div>
+                <div class="artifact-card">
+                  <div class="artifact-card-head bug">BUG REPORT · BUG-231</div>
+                  <table class="artifact-table">
+                    <tr><td>Severity</td><td>High</td></tr>
+                    <tr><td>Environment</td><td>Chrome, staging, guest session</td></tr>
+                    <tr><td>Steps to reproduce</td><td>Same as TC-114</td></tr>
+                    <tr><td>Expected</td><td>Cart badge updates on the first click</td></tr>
+                    <tr><td>Actual</td><td>Badge only updates after a second click or manual page refresh</td></tr>
+                    <tr><td>Status</td><td>Reported &rarr; assigned to dev &rarr; retested on fix</td></tr>
+                  </table>
+                </div>
+              </div>
+            </div>
+
+            <div class="artifact-block">
+              <div class="artifact-head">
+                <span class="artifact-tag">How I decide what to automate</span>
+                <span class="artifact-note">Test strategy note, not a metric — the reasoning I actually apply before writing a test plan.</span>
+              </div>
+              <div class="strategy-card">
+                <ol class="strategy-list">
+                  <li><b>Map flows by business risk, not by ease of testing.</b> Checkout/payment and auth get priority over low-traffic admin screens, regardless of which is simpler to script.</li>
+                  <li><b>Automate what repeats; keep exploration where judgment matters.</b> Stable, high-frequency regression paths go into Playwright/Postman suites. New features, edge cases, and anything UX-sensitive stay manual and exploratory until they stabilize.</li>
+                  <li><b>Triage by blast radius, not just severity label.</b> A cosmetic bug on the payment page can outrank a "major" bug on a rarely-used settings screen — I ask who hits this, how often, and what it costs when they do.</li>
+                  <li><b>Wire the safety net into CI, not into memory.</b> Regression suites run on every push/PR (see the Playwright project) so a fix can't silently break something else two weeks later.</li>
+                </ol>
+              </div>
+            </div>
+          </section>
+
+          <!-- ============ SKILLS ============ -->
+          <section id="skills" class="file-section" data-file="skills.json">
+            <div class="code-comment head">// skills.json — the stack I actually use, not just list</div>
+            <h2 class="h-title">Skills</h2>
+            <div class="skills-json-line">{ <span class="k">"status"</span>: <span class="v">"always_testing"</span>, <span class="k">"specialism"</span>: <span class="v">"quality_assurance"</span> }</div>
+
+            <div class="skill-grid">
+              <div class="skill-panel">
+                <div class="skill-panel-head"><span class="t">AUTOMATION &amp; PERFORMANCE</span><a class="evidence-link" href="#projects" data-target="projects">see it in projects &rarr;</a></div>
+                <div class="skill-row"><span class="s-name">Playwright</span><span class="tier tier-daily">Daily driver</span></div>
+                <div class="skill-row"><span class="s-name">Page Object Model</span><span class="tier tier-daily">Daily driver</span></div>
+                <div class="skill-row"><span class="s-name">Pytest</span><span class="tier tier-comfortable">Comfortable</span></div>
+                <div class="skill-row"><span class="s-name">k6</span><span class="tier tier-comfortable">Comfortable</span></div>
+                <div class="skill-row"><span class="s-name">Apache JMeter</span><span class="tier tier-comfortable">Comfortable</span></div>
+                <div class="skill-row"><span class="s-name">Selenium</span><span class="tier tier-comfortable">Comfortable</span></div>
+                <div class="skill-row"><span class="s-name">GitHub Actions CI/CD</span><span class="tier tier-comfortable">Comfortable</span></div>
+              </div>
+
+              <div class="skill-panel">
+                <div class="skill-panel-head"><span class="t">API &amp; AI TESTING</span><a class="evidence-link" href="#experience" data-target="experience">see it in experience &rarr;</a></div>
+                <div class="skill-row"><span class="s-name">Postman</span><span class="tier tier-daily">Daily driver</span></div>
+                <div class="skill-row"><span class="s-name">REST APIs</span><span class="tier tier-daily">Daily driver</span></div>
+                <div class="skill-row"><span class="s-name">JSON validation</span><span class="tier tier-daily">Daily driver</span></div>
+                <div class="skill-row"><span class="s-name">Newman</span><span class="tier tier-comfortable">Comfortable</span></div>
+                <div class="skill-row"><span class="s-name">Swagger</span><span class="tier tier-comfortable">Comfortable</span></div>
+                <div class="skill-row"><span class="s-name">MCP + Claude</span><span class="tier tier-comfortable">Comfortable</span></div>
+              </div>
+
+              <div class="skill-panel">
+                <div class="skill-panel-head"><span class="t">PROGRAMMING &amp; DATABASES</span><span class="n">04</span></div>
+                <div class="skill-row"><span class="s-name">Python</span><span class="tier tier-daily">Daily driver</span></div>
+                <div class="skill-row"><span class="s-name">SQL (MySQL)</span><span class="tier tier-comfortable">Comfortable</span></div>
+                <div class="skill-row"><span class="s-name">C++</span><span class="tier tier-comfortable">Comfortable</span></div>
+                <div class="skill-row"><span class="s-name">JavaScript</span><span class="tier tier-learning">Learning</span></div>
+              </div>
+
+              <div class="skill-panel">
+                <div class="skill-panel-head"><span class="t">TESTING TYPES &amp; TOOLS</span><span class="n">18</span></div>
+                <div class="chip-cloud">
+                  <span class="chip">Functional</span><span class="chip">Regression</span><span class="chip">Smoke</span>
+                  <span class="chip">Sanity</span><span class="chip">Exploratory</span><span class="chip">Integration</span>
+                  <span class="chip">End-to-End</span><span class="chip">UI/UX</span><span class="chip">Jira</span>
+                  <span class="chip">Git &amp; GitHub</span><span class="chip">VS Code</span><span class="chip">CI/CD Fundamentals</span>
+                  <span class="chip">SDLC / STLC</span><span class="chip">Agile / Scrum</span><span class="chip">Root Cause Analysis</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- ============ CERTIFICATIONS ============ -->
+          <section id="certifications" class="file-section" data-file="certifications.yml">
+            <div class="code-comment head">// certifications.yml — the paper trail behind the claims above</div>
+            <h2 class="h-title">Certifications &amp; Education</h2>
+
+            <div class="yaml-block">
+<div><span class="yk">certifications</span>:</div>
+<div class="ind">- <span class="yk">name</span>: <span class="ys">"Full Stack SQA Course"</span>       <span class="yk">issuer</span>: <span class="ys">"IT Training BD"</span>   <span class="yk">date</span>: <span class="yn">Jan 2026</span></div>
+<div class="ind">- <span class="yk">name</span>: <span class="ys">"Web Automation with Playwright"</span> <span class="yk">issuer</span>: <span class="ys">"Udemy"</span>         <span class="yk">date</span>: <span class="yn">Apr 2026</span></div>
+<div class="ind">- <span class="yk">name</span>: <span class="ys">"API Testing with Postman"</span>     <span class="yk">issuer</span>: <span class="ys">"Udemy"</span>         <span class="yk">date</span>: <span class="yn">Feb 2026</span></div>
+<div>&nbsp;</div>
+<div><span class="yk">education</span>:</div>
+<div class="ind"><span class="yk">degree</span>: <span class="ys">"B.Sc. in Computer Science &amp; Engineering"</span></div>
+<div class="ind"><span class="yk">institution</span>: <span class="ys">"Comilla University"</span></div>
+<div class="ind"><span class="yk">duration</span>: <span class="ys">"Jan 2020 – Aug 2025"</span></div>
+<div class="ind"><span class="yk">cgpa</span>: <span class="yn">3.57</span> / <span class="yn">4.00</span></div>
+<div>&nbsp;</div>
+<div><span class="yk">problem_solving</span>:</div>
+<div class="ind"><span class="yk">platforms</span>: [<a href="https://codeforces.com/profile/huzaifa-24" target="_blank" rel="noopener" class="ys">Codeforces</a>, <span class="ys">LeetCode</span>, <span class="ys">GeeksforGeeks</span>]</div>
+<div class="ind"><span class="yk">solved</span>: <span class="yn">800+</span> &nbsp; <span class="yk">contests</span>: <span class="yn">50+</span> &nbsp; <span class="yk">codeforces_rating</span>: <span class="yn">1083</span></div>
+            </div>
+
+            <div class="badge-row">
+              <div class="cert-badge"><span class="ic">&#127891;</span> B.Sc. CSE — Comilla University</div>
+              <div class="cert-badge"><span class="ic">&#9989;</span> Full Stack SQA — IT Training BD</div>
+              <div class="cert-badge"><span class="ic">&#127760;</span> Playwright Automation — Udemy</div>
+              <div class="cert-badge"><span class="ic">&#128295;</span> API Testing (Postman) — Udemy</div>
+              <a class="cert-badge" href="https://codeforces.com/profile/huzaifa-24" target="_blank" rel="noopener"><span class="ic">&#127942;</span> Codeforces rating 1083</a>
+            </div>
+          </section>
+
+          <!-- ============ CONTACT ============ -->
+          <section id="contact" class="file-section" data-file="contact.css">
+            <div class="code-comment head">// contact.css — the only section here that expects a response</div>
+            <h2 class="h-title">Get In Touch</h2>
+
+            <div class="contact-rule">
+<div><span class="sel">.contact</span> {</div>
+<div class="ind"><span class="prop">email</span>: <span class="val">"nahidhossainmd99@gmail.com"</span>;</div>
+<div class="ind"><span class="prop">phone</span>: <span class="val">"+880 1704788032"</span>;</div>
+<div class="ind"><span class="prop">location</span>: <span class="val">"Dhaka, Bangladesh"</span>;</div>
+<div class="ind"><span class="prop">github</span>: url(<span class="val">github.com/nahid-10</span>);</div>
+<div class="ind"><span class="prop">linkedin</span>: url(<span class="val">linkedin.com/in/mdnahidhossain26</span>);</div>
+<div>}</div>
+            </div>
+
+            <div class="contact-cols">
+              <div class="contact-form-card">
+                <form id="contactForm">
+                  <label for="cf-name">name</label>
+                  <input type="text" id="cf-name" required placeholder="Your name">
+                  <label for="cf-email">email</label>
+                  <input type="email" id="cf-email" required placeholder="you@example.com">
+                  <label for="cf-message">message</label>
+                  <textarea id="cf-message" required placeholder="Let's talk about a QA role, a project, or a bug you found here."></textarea>
+                  <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center;">&#9993; Send Message</button>
+                </form>
+              </div>
+              <div class="contact-info-card">
+                <div class="info-line"><span class="ic">&#128231;</span> <a href="mailto:nahidhossainmd99@gmail.com">nahidhossainmd99@gmail.com</a></div>
+                <div class="info-line"><span class="ic">&#128222;</span> <a href="tel:+8801704788032">+880 1704788032</a></div>
+                <div class="info-line"><span class="ic">&#128205;</span> Dhaka, Bangladesh</div>
+                <div class="info-line"><span class="ic">&#128279;</span> <a href="https://github.com/nahid-10" target="_blank" rel="noopener">github.com/nahid-10</a></div>
+                <div class="info-line"><span class="ic">&#128100;</span> <a href="https://www.linkedin.com/in/mdnahidhossain26" target="_blank" rel="noopener">linkedin.com/in/mdnahidhossain26</a></div>
+                <div class="info-line"><span class="ic">&#127760;</span> <a href="https://nahid-10.github.io/portfolio/" target="_blank" rel="noopener">nahid-10.github.io/portfolio</a></div>
+                <div class="info-line"><span class="ic">&#128196;</span> <a href="./assets/Md_Nahid_Hossain_Qa_Resume.pdf" download>Download résumé (PDF)</a></div>
+              </div>
+            </div>
+
+            <div class="reference-card">
+              <span class="reference-label">Reference</span>
+              <div class="reference-who">
+                <b>Kazi Safaet Mahmud Auvi</b> — CEO &amp; Co-Founder, Nymph Solution Ltd.
+                <a href="https://www.linkedin.com/in/kazi-safaet-mahmud-auvi" target="_blank" rel="noopener">LinkedIn</a>
+              </div>
+            </div>
+
+            <div class="footer-note">
+              <span class="ok">✔</span> All sections passing · Built by Md Nahid Hossain, tested by Md Nahid Hossain &copy; 2026
+            </div>
+          </section>
 
         </div>
-    </section>
-
-
-<section id="projects">
-    <h2>Projects</h2>
-
-    <div class="project-container">
-
-        <div class="project">
-            <img src="./assets/manual testing logo.avif" alt="manual testing">
-            <div class="project-info">
-                <h3>Manual Testing (nopCommerce)</h3>
-                <p>Created test cases, executed functional and regression testing, and reported defects.</p>
-                <a href="https://github.com/nahid-10/manual_software_testing_nopCommerce" target="_blank">View Project</a>
-            </div>
-        </div>
-
-        <div class="project">
-            <img src="./assets/automation.webp" alt="Automation Testing">
-            <div class="project-info">
-                <h3>Automation Testing</h3>
-                <p>Automated end-to-end UI tests on application using Playwright for faster regression testing.</p>
-                <a href="https://github.com/nahid-10/end_to_end_testing_framework_playwright" target="_blank">View Project</a>
-            </div>
-        </div>
-
-        
-
+      </div>
     </div>
+  </div>
 
-    <div class="project-container">
-
-        <div class="project">
-            <img src="./assets/jmeter.jpg" alt="Performance Testing JMeter">
-            <div class="project-info">
-                <h3>Performance Testing</h3>
-                <p>Performed load and stress testing using JMeter to analyze system performance and identify bottlenecks.</p>
-                <a href="https://github.com/nahid-10/performance_testing_using_jmeter" target="_blank">View Project</a>
-            </div>
-        </div>
-
-        <div class="project">
-            <img src="./assets/api-testing.avif" alt="AI Chatbot">
-            <div class="project-info">
-                <h3>API Testing using Postman</h3> 
-                <p>Validated REST APIs using Postman with assertions, auth, and environment variables.</p> 
-                <a href="https://github.com/nahid-10/API_testing_using_POSTMAN" target="_blank">View Project</a>
-            </div>
-        </div>
-
-        
-
+  <!-- terminal panel -->
+  <div class="terminal-panel" id="terminalPanel">
+    <div class="terminal-head">
+      <div class="t-tabs"><span class="active">TERMINAL</span><span>PROBLEMS</span><span>OUTPUT</span></div>
+      <button class="terminal-close" id="terminalClose">&times;</button>
     </div>
+    <div class="terminal-body" id="terminalBody"></div>
+  </div>
 
-    <div class="project-container">
-
-        <div class="project">
-            <img src="./assets/football.jpg" alt="Sports Analysis">
-            <div class="project-info">
-                <h3>Sports Performance Analysis</h3>
-                <p>Scraped and analyzed football data using Python and Plotly to identify top scorers and young talents.</p>
-                <a href="https://github.com/nahid-10/sports-analysis-project" target="_blank">View Project</a>
-            </div>
-        </div>
-
-        <div class="project">
-            <img src="./assets/chatbot.jpg" alt="AI Chatbot">
-            <div class="project-info">
-                <h3>AI Chatbot using LLM</h3>
-                <p>Built a book-based chatbot using LangChain, FAISS, and Hugging Face models.</p>
-                <a href="https://github.com/nahid-10/" target="_blank">View Project</a>
-            </div>
-        </div>
-
+  <!-- status bar -->
+  <div class="statusbar">
+    <div class="sb-left">
+      <span class="sb-item">&#8961; main</span>
+      <span class="sb-item">&#10003; 0 &#9888; 0</span>
     </div>
+    <div class="sb-right">
+      <span class="sb-item">UTF-8</span>
+      <span class="sb-item">LF</span>
+      <span class="sb-item">JetBrains Mono</span>
+      <button class="sb-item sb-run" id="runTestsBtn">&#9654; Run Tests</button>
+    </div>
+  </div>
 
-    
+</div>
 
-</section>
-
-
-    
-
-
-
-    <section id="skills">
-        <h2>Skills</h2>
-        <div class="skills-container">
-            <div class="skill">
-                <img src="./assets/c.svg" alt="Git">
-                <p>C</p>
-            </div>
-            <div class="skill">
-                <img src="./assets/cpp.svg" alt="Git">
-                <p>C++</p>
-            </div>
-            <div class="skill">
-                <img src="./assets/python.svg" alt="Git">
-                <p>Python</p>
-            </div>
-            
-            <div class="skill">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/6/61/HTML5_logo_and_wordmark.svg" alt="HTML">
-                <p>HTML</p>
-            </div>
-            <div class="skill">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/6/62/CSS3_logo.svg" alt="CSS">
-                <p>CSS</p>
-            </div>
-            <div class="skill">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png" alt="JavaScript">
-                <p>JavaScript</p>
-            </div>
-            
-            <div class="skill">
-                <img src="./assets/manual testing logo.avif" alt="DL">
-                <p>Manual Testing</p>
-            </div>
-            <div class="skill">
-                <img src="./assets/api-testing.avif" alt="Computer Vision">
-                <p>Api Testing</p>
-            </div>
-
-            <div class="skill">
-                <img src="./assets/JMeter_Logo.avif" style="color: white;" alt="MySql">
-                <p>Performance Testing</p>
-            </div>
-
-            <div class="skill">
-                <img src="./assets/automation-testing.webp" style="color: white;" alt="MySql">
-                <p>Automation Testing</p>
-            </div>
-            
-        </div>
-    </section>
-
-
-    
-
-    <section id="contact"
-        style="background: #112240; color: white; padding: 50px; border-radius: 15px; max-width: 800px; margin: auto; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);  display: flex; gap: 40px; flex-wrap: wrap;">
-
-        <!-- Left Column: Form -->
-        <div style="flex: 1; min-width: 300px;">
-            <h2 style="font-size: 26px; margin-bottom: 20px; font-family: Arial, sans-serif; text-align: center;">Get in
-                Touch</h2>
-            <form action="#" method="POST" style="display: flex; flex-direction: column; gap: 15px;">
-                <input type="text" id="name" name="name" required placeholder="Your Name"
-                    style="padding: 12px; border-radius: 5px; border: none; font-size: 16px; width: 100%; transition: 0.3s; background: #233554; color: white;">
-
-                <input type="email" id="email" name="email" required placeholder="Your Email"
-                    style="padding: 12px; border-radius: 5px; border: none; font-size: 16px; width: 100%; transition: 0.3s; background: #233554; color: white;">
-
-                <textarea id="message" name="message" required placeholder="Your Message"
-                    style="padding: 12px; border-radius: 5px; border: none; font-size: 16px; width: 100%; height: 120px; transition: 0.3s; background: #233554; color: white;"></textarea>
-
-                <button type="submit"
-                    style="background: #ff9800; color: white; padding: 12px; border: none; border-radius: 5px; font-size: 18px; cursor: pointer; transition: transform 0.3s ease, background 0.3s ease;">
-                    Send Message
-                </button>
-            </form>
-        </div>
-
-        <!-- Right Column: Contact Info -->
-        <div
-            style="flex: 1; min-width: 300px; display: flex; flex-direction: column; justify-content: center; gap: 15px; text-align: center; padding: 20px; background: #1c2b4b; border-radius: 10px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4); line-height: 1.4;">
-
-            <h2 style="font-size: 26px; margin-bottom: 8px; font-family: Arial, sans-serif; color: #ffeb3b;">Contact
-                Info</h2>
-
-            <p style="font-size: 15px; color: white; margin: 5px 0;">🏠 <strong>Address:</strong>Dhaka, Bangladesh</p>
-
-            <p style="font-size: 15px; color: white; margin: 5px 0;">📧 <strong>Email:</strong>
-                <a href="mailto:nahid@example.com"
-                    style="color: #ffeb3b; text-decoration: none; font-weight: bold;">nahidhossainmd99@gmail.com</a>
-            </p>
-
-            
-
-            <p style="font-size: 15px; color: white; margin: 5px 0;"> <strong>GitHub:</strong>
-                <a href="https://github.com/nahid-10" target="_blank" style="color: #ffeb3b; text-decoration: none; font-weight: bold;">🔗 nahid-10</a>
-            </p>
-        </div>
-
-
-    </section>
-
-
+<script src="./scripts.js?v=9"></script>
 </body>
-
 </html>

@@ -1,101 +1,228 @@
-// Smooth Scrolling for Navigation Links
-document.querySelectorAll('nav ul li a').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        const targetId = this.getAttribute('href').substring(1);
-        document.getElementById(targetId).scrollIntoView({ behavior: 'smooth' });
+(function () {
+  "use strict";
+
+  var sections = Array.prototype.slice.call(document.querySelectorAll(".file-section"));
+  var tabs = Array.prototype.slice.call(document.querySelectorAll(".tab"));
+  var treeFiles = Array.prototype.slice.call(document.querySelectorAll(".tree-file[data-target]"));
+  var crumb = document.getElementById("crumbFile");
+  var editorScroll = document.getElementById("editorScroll");
+  var gutter = document.getElementById("gutter");
+  var sidebar = document.getElementById("sidebar");
+  var menuToggle = document.getElementById("menuToggle");
+  var tabbar = document.getElementById("tabbar");
+
+  var fileNames = {
+    home: "home.tsx",
+    about: "about.test.js",
+    experience: "experience.postman_collection.json",
+    projects: "projects.board.jira",
+    skills: "skills.json",
+    certifications: "certifications.yml",
+    contact: "contact.css"
+  };
+
+  function setActive(id) {
+    var activeTab = null;
+    tabs.forEach(function (t) {
+      var isActive = t.dataset.target === id;
+      t.classList.toggle("active", isActive);
+      if (isActive) activeTab = t;
     });
-});
-
-// Add hover animation effect dynamically
-document.querySelectorAll('.skill').forEach(skill => {
-    skill.addEventListener('mouseover', () => {
-        skill.style.transform = "scale(1.2) rotate(5deg)";
-    });
-
-    skill.addEventListener('mouseleave', () => {
-        skill.style.transform = "scale(1) rotate(0)";
-    });
-});
-
-// Form Validation
-document.querySelector('form').addEventListener('submit', function(event) {
-    event.preventDefault();
-    
-    const name = document.getElementById('name');
-    const email = document.getElementById('email');
-    const message = document.getElementById('message');
-
-    if (name.value.trim() === "" || email.value.trim() === "" || message.value.trim() === "") {
-        alert("All fields are required!");
-        return;
+    treeFiles.forEach(function (f) { f.classList.toggle("active", f.dataset.target === id); });
+    if (crumb && fileNames[id]) crumb.textContent = fileNames[id];
+    if (activeTab && tabbar) {
+      var barRect = tabbar.getBoundingClientRect();
+      var tabRect = activeTab.getBoundingClientRect();
+      var tabLeft = tabRect.left - barRect.left + tabbar.scrollLeft;
+      var tabRight = tabLeft + tabRect.width;
+      var viewLeft = tabbar.scrollLeft;
+      var viewRight = viewLeft + tabbar.clientWidth;
+      if (tabLeft < viewLeft) {
+        tabbar.scrollTo({ left: tabLeft - 16, behavior: "smooth" });
+      } else if (tabRight > viewRight) {
+        tabbar.scrollTo({ left: tabRight - tabbar.clientWidth + 16, behavior: "smooth" });
+      }
     }
+  }
 
-    alert("Message Sent Successfully!");
-    this.reset();
-});
+  function scrollToSection(id) {
+    var el = document.getElementById(id);
+    if (!el) return;
+    el.scrollIntoView({ behavior: "smooth", block: "start" });
+    setActive(id);
+    if (window.innerWidth <= 720) sidebar.classList.remove("open");
+  }
 
-// Sticky Header on Scroll
-window.addEventListener('scroll', () => {
-    let header = document.querySelector("header");
-    if (window.scrollY > 50) {
-        header.classList.add("scrolled");
-    } else {
-        header.classList.remove("scrolled");
+  tabs.forEach(function (t) {
+    t.addEventListener("click", function () { scrollToSection(t.dataset.target); });
+  });
+  treeFiles.forEach(function (f) {
+    f.addEventListener("click", function (e) {
+      e.preventDefault();
+      scrollToSection(f.dataset.target);
+    });
+  });
+  Array.prototype.slice.call(document.querySelectorAll("a[data-target]")).forEach(function (a) {
+    a.addEventListener("click", function (e) {
+      e.preventDefault();
+      scrollToSection(a.dataset.target);
+    });
+  });
+
+  // scroll-spy: whichever section's top has most recently passed the
+  // "active line" near the top of the viewport wins
+  var spyTicking = false;
+  function updateActiveOnScroll() {
+    spyTicking = false;
+    var line = editorScroll.getBoundingClientRect().top + 120;
+    var current = sections[0].id;
+    for (var i = 0; i < sections.length; i++) {
+      if (sections[i].getBoundingClientRect().top <= line) current = sections[i].id;
     }
-});
+    setActive(current);
+  }
+  editorScroll.addEventListener("scroll", function () {
+    if (!spyTicking) {
+      spyTicking = true;
+      requestAnimationFrame(updateActiveOnScroll);
+    }
+  });
+  updateActiveOnScroll();
 
-// Reveal Sections on Scroll
-const sections = document.querySelectorAll('section');
-const revealSection = () => {
-    sections.forEach(section => {
-        let rect = section.getBoundingClientRect();
-        if (rect.top < window.innerHeight - 100) {
-            section.classList.add('visible');
-        }
+  // mobile sidebar toggle
+  if (menuToggle) {
+    menuToggle.addEventListener("click", function () {
+      sidebar.classList.toggle("open");
     });
-};
-window.addEventListener('scroll', revealSection);
-window.addEventListener('load', revealSection);
+  }
 
-// Highlight active link based on scroll position
-const navLinks = document.querySelectorAll('nav ul li a');
+  // decorative gutter line numbers, sized to total content height
+  function buildGutter() {
+    if (!gutter || window.innerWidth <= 720) return;
+    var contentEl = document.querySelector(".content");
+    var lineHeight = 20;
+    var total = Math.ceil(contentEl.scrollHeight / lineHeight);
+    var html = "";
+    for (var i = 1; i <= total; i++) {
+      html += "<div>" + i + "</div>";
+    }
+    gutter.innerHTML = html;
+  }
+  buildGutter();
+  window.addEventListener("resize", debounce(buildGutter, 200));
 
-const highlightActiveLink = () => {
-    let currentSection = "";
+  function debounce(fn, wait) {
+    var t;
+    return function () {
+      clearTimeout(t);
+      t = setTimeout(fn, wait);
+    };
+  }
 
-    sections.forEach(section => {
-        let rect = section.getBoundingClientRect();
-        if (rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2) {
-            currentSection = section.getAttribute("id");
-        }
+  // contact form -> mailto
+  var contactForm = document.getElementById("contactForm");
+  if (contactForm) {
+    contactForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var name = document.getElementById("cf-name").value.trim();
+      var email = document.getElementById("cf-email").value.trim();
+      var message = document.getElementById("cf-message").value.trim();
+      var subject = encodeURIComponent("Portfolio contact from " + name);
+      var body = encodeURIComponent(message + "\n\n— " + name + " (" + email + ")");
+      window.location.href = "mailto:nahidhossainmd99@gmail.com?subject=" + subject + "&body=" + body;
     });
+  }
 
-    navLinks.forEach(link => {
-        link.classList.remove("active");
-        if (link.getAttribute("href").substring(1) === currentSection) {
-            link.classList.add("active");
+  // ============ terminal: "Run Tests" ============
+  var terminalPanel = document.getElementById("terminalPanel");
+  var terminalBody = document.getElementById("terminalBody");
+  var runBtn = document.getElementById("runTestsBtn");
+  var terminalClose = document.getElementById("terminalClose");
+  var running = false;
+
+  var script = [
+    { t: "cmd", text: "npm run test:portfolio" },
+    { t: "gap" },
+    { t: "pass", file: "about.test.js", label: "communicates clearly under pressure" },
+    { t: "pass", file: "experience.test.js", label: "delivers under real production constraints" },
+    { t: "pass", file: "projects.test.js", label: "ships, tests, and documents the work" },
+    { t: "pass", file: "skills.test.js", label: "covers manual, API, automation & performance" },
+    { t: "pass", file: "certifications.test.js", label: "keeps learning on a schedule" },
+    { t: "pass", file: "contact.test.js", label: "actually responds to messages" },
+    { t: "gap" },
+    { t: "dim", text: "Test Suites: 6 passed, 6 total" },
+    { t: "dim", text: "Tests:       42 passed, 42 total" },
+    { t: "yellow", text: "Coverage:    attention-to-detail 100% · patience-for-edge-cases 100%" },
+    { t: "dim", text: "Time:        3.57s (yes, that's the CGPA joke)" },
+    { t: "gap" },
+    { t: "final", text: "✔ Candidate is production-ready." }
+  ];
+
+  function typeLine(entry, done) {
+    if (entry.t === "gap") {
+      var gap = document.createElement("div");
+      gap.innerHTML = "&nbsp;";
+      terminalBody.appendChild(gap);
+      return done();
+    }
+    var line = document.createElement("div");
+    if (entry.t === "cmd") line.className = "l-cmd";
+    if (entry.t === "dim") line.className = "l-dim";
+    if (entry.t === "yellow") line.className = "l-yellow";
+    if (entry.t === "final") line.className = "l-pass";
+    terminalBody.appendChild(line);
+
+    var full = entry.t === "pass"
+      ? "PASS  src/" + entry.file
+      : entry.text;
+
+    var i = 0;
+    var speed = entry.t === "cmd" ? 35 : 8;
+    (function step() {
+      if (entry.t === "pass") {
+        line.innerHTML = '<span class="l-pass">PASS</span>  src/' + entry.file.slice(0, Math.max(0, i - 6));
+      } else {
+        line.textContent = full.slice(0, i);
+      }
+      i++;
+      if (i <= full.length) {
+        setTimeout(step, speed);
+      } else {
+        if (entry.t === "pass") {
+          line.innerHTML = '<span class="l-pass">PASS</span>  src/' + entry.file + '  <span class="l-dim">— ' + entry.label + "</span>";
         }
+        terminalBody.scrollTop = terminalBody.scrollHeight;
+        done();
+      }
+      terminalBody.scrollTop = terminalBody.scrollHeight;
+    })();
+  }
+
+  function runSequence(index) {
+    if (index >= script.length) {
+      running = false;
+      return;
+    }
+    typeLine(script[index], function () {
+      runSequence(index + 1);
     });
-};
+  }
 
-// Add the event listener to update active link on scroll
-window.addEventListener("scroll", highlightActiveLink);
-document.addEventListener("DOMContentLoaded", function () {
-    const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                document.querySelectorAll(".about-list li").forEach((li, index) => {
-                    setTimeout(() => {
-                        li.classList.add("show");
-                    }, index * 300); // Delay each item
-                });
-            }
-        });
-    }, { threshold: 0.5 });
+  function openTerminal() {
+    terminalPanel.classList.add("open");
+    if (running) return;
+    running = true;
+    terminalBody.innerHTML = "";
+    runSequence(0);
+  }
 
-    observer.observe(document.querySelector("#about"));
-});
-function toggleMenu() {
-    document.getElementById('menu').classList.toggle('show');
-}
+  if (runBtn) runBtn.addEventListener("click", openTerminal);
+  if (terminalClose) terminalClose.addEventListener("click", function () {
+    terminalPanel.classList.remove("open");
+  });
+
+  // auto-run once, shortly after load, so first-time visitors see it happen
+  setTimeout(function () {
+    if (!running) openTerminal();
+  }, 1200);
+})();
