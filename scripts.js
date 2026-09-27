@@ -111,12 +111,56 @@
   buildGutter();
   window.addEventListener("resize", debounce(buildGutter, 200));
 
+  // ============ case-study accordions ============
+  var caseStudies = Array.prototype.slice.call(document.querySelectorAll(".case-study"));
+  function setCaseOpen(cs, open) {
+    var btn = cs.querySelector(".case-toggle-btn");
+    var panel = cs.querySelector(".case-panel");
+    var label = cs.querySelector(".case-toggle");
+    btn.setAttribute("aria-expanded", open ? "true" : "false");
+    cs.classList.toggle("open", open);
+    if (label) label.textContent = open ? "Hide case study" : "Show detailed case study";
+    panel.style.maxHeight = open ? panel.scrollHeight + "px" : "0px";
+    setTimeout(buildGutter, 350);
+  }
+  caseStudies.forEach(function (cs) {
+    var btn = cs.querySelector(".case-toggle-btn");
+    btn.addEventListener("click", function () {
+      setCaseOpen(cs, !cs.classList.contains("open"));
+    });
+  });
+  function openCaseFromHash() {
+    var id = window.location.hash.slice(1);
+    var cs = document.getElementById(id);
+    if (cs && cs.classList.contains("case-study") && !cs.classList.contains("open")) {
+      setCaseOpen(cs, true);
+      setTimeout(function () {
+        cs.scrollIntoView({ behavior: "smooth", block: "start" });
+      }, 60);
+    }
+  }
+  window.addEventListener("hashchange", openCaseFromHash);
+  openCaseFromHash();
+
   function debounce(fn, wait) {
     var t;
     return function () {
       clearTimeout(t);
       t = setTimeout(fn, wait);
     };
+  }
+
+  // ============ toast ============
+  var toastEl = document.getElementById("toast");
+  var toastTimer;
+  function showToast(html) {
+    if (!toastEl) return;
+    toastEl.innerHTML = html;
+    toastEl.classList.add("show");
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function () {
+      toastEl.classList.remove("show");
+    }, 2600);
   }
 
   // contact form -> mailto
@@ -129,9 +173,32 @@
       var message = document.getElementById("cf-message").value.trim();
       var subject = encodeURIComponent("Portfolio contact from " + name);
       var body = encodeURIComponent(message + "\n\n— " + name + " (" + email + ")");
+      showToast('<span class="ok">&#10003;</span> Opening your email app to send this...');
       window.location.href = "mailto:nahidhossainmd99@gmail.com?subject=" + subject + "&body=" + body;
     });
   }
+
+  // copy email to clipboard
+  var copyBtns = Array.prototype.slice.call(document.querySelectorAll(".copy-email-btn"));
+  copyBtns.forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var email = btn.getAttribute("data-email");
+      function done() { showToast('<span class="ok">&#10003;</span> Email copied to clipboard!'); }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(email).then(done, done);
+      } else {
+        var tmp = document.createElement("textarea");
+        tmp.value = email;
+        tmp.style.position = "fixed";
+        tmp.style.opacity = "0";
+        document.body.appendChild(tmp);
+        tmp.select();
+        try { document.execCommand("copy"); } catch (err) {}
+        document.body.removeChild(tmp);
+        done();
+      }
+    });
+  });
 
   // ============ terminal: "Run Tests" ============
   var terminalPanel = document.getElementById("terminalPanel");
