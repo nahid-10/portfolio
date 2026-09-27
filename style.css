@@ -237,8 +237,8 @@ button { font-family: var(--mono); cursor: pointer; }
 }
 .tabbar::-webkit-scrollbar { display: none; }
 .tab {
+  display: none;
   flex-shrink: 0;
-  display: flex;
   align-items: center;
   gap: 7px;
   padding: 9px 14px;
@@ -250,6 +250,7 @@ button { font-family: var(--mono); cursor: pointer; }
 }
 .tab:hover { color: #ddd; cursor: pointer; }
 .tab.active {
+  display: flex;
   background: var(--bg-tab-active);
   color: #fff;
   border-top: 2px solid var(--vscode);
@@ -295,7 +296,7 @@ button { font-family: var(--mono); cursor: pointer; }
 
 /* ============ generic file-section chrome ============ */
 .file-section { margin-bottom: 10px; scroll-margin-top: 10px; }
-.file-section + .file-section { margin-top: 70px; padding-top: 40px; border-top: 1px dashed var(--border-soft); }
+.file-section + .file-section { margin-top: 84px; padding-top: 48px; border-top: 1px dashed var(--border-soft); }
 
 .code-comment { color: var(--green); font-size: 13.5px; }
 .code-comment.head { font-size: 13px; margin-bottom: 6px; }
@@ -379,7 +380,7 @@ button { font-family: var(--mono); cursor: pointer; }
 .stat-chip .l { color: var(--text-dim); font-size: 11px; }
 
 /* ============ about ============ */
-.about-grid { display: flex; gap: 26px; flex-wrap: wrap; align-items: stretch; margin-bottom: 34px; }
+.about-grid { display: flex; gap: 26px; flex-wrap: wrap; align-items: stretch; margin-bottom: 40px; }
 .about-photo-card {
   background: var(--bg-card);
   border: 1px solid var(--border);
@@ -521,7 +522,7 @@ button { font-family: var(--mono); cursor: pointer; }
 }
 
 /* ============ sample artifact ============ */
-.artifact-block { margin-top: 24px; }
+.artifact-block { margin-top: 36px; }
 .artifact-head { margin-bottom: 14px; }
 .artifact-tag {
   display: inline-block; font-size: 11px; font-weight: 700; color: var(--jira);
@@ -609,24 +610,8 @@ button { font-family: var(--mono); cursor: pointer; }
 .yaml-block .ind { padding-left: 22px; }
 .yaml-block div { white-space: pre; line-height: 1.7; }
 
-.badge-row { display: flex; flex-wrap: wrap; gap: 10px; }
-.cert-badge {
-  display: flex; align-items: center; gap: 9px;
-  background: var(--bg-card-alt); border: 1px solid var(--border-soft); border-radius: 8px;
-  padding: 9px 14px; font-size: 12.5px; color: #ddd;
-}
-.cert-badge .ic { font-size: 15px; }
-
 /* ============ contact ============ */
-.contact-rule {
-  background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius);
-  padding: 20px 24px; font-size: 13.5px; margin-bottom: 28px;
-}
-.contact-rule .sel { color: var(--purple); }
-.contact-rule .prop { color: var(--jira); }
-.contact-rule .val { color: var(--orange); }
-
-.contact-cols { display: flex; gap: 26px; flex-wrap: wrap; }
+.contact-cols { display: flex; gap: 26px; flex-wrap: wrap; margin-top: 6px; }
 .contact-form-card, .contact-info-card {
   flex: 1; min-width: 280px;
   background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px;
