@@ -142,6 +142,34 @@
   window.addEventListener("hashchange", openCaseFromHash);
   openCaseFromHash();
 
+  // ============ folder-style accordions (experience jobs + featured projects) ============
+  function setFolderOpen(container, triggerSel, open) {
+    var btn = container.querySelector(triggerSel);
+    var panel = container.querySelector(".case-panel");
+    var chevronText = btn.querySelector(".folder-chevron") || (btn.classList.contains("folder-chevron") ? btn : null);
+    btn.setAttribute("aria-expanded", open ? "true" : "false");
+    container.classList.toggle("open", open);
+    if (chevronText) chevronText.childNodes[0].textContent = open ? "Hide " : "Details ";
+    panel.style.maxHeight = open ? panel.scrollHeight + "px" : "0px";
+    setTimeout(buildGutter, 350);
+  }
+  var pmFolders = Array.prototype.slice.call(document.querySelectorAll(".pm-folder"));
+  pmFolders.forEach(function (folder, i) {
+    var btn = folder.querySelector(".pm-folder-head");
+    btn.addEventListener("click", function () {
+      setFolderOpen(folder, ".pm-folder-head", !folder.classList.contains("open"));
+    });
+    setFolderOpen(folder, ".pm-folder-head", i === 0);
+  });
+  var featureCards = Array.prototype.slice.call(document.querySelectorAll(".feature-card"));
+  featureCards.forEach(function (card) {
+    var btn = card.querySelector(".feature-toggle");
+    btn.addEventListener("click", function () {
+      setFolderOpen(card, ".feature-toggle", !card.classList.contains("open"));
+    });
+    setFolderOpen(card, ".feature-toggle", false);
+  });
+
   function debounce(fn, wait) {
     var t;
     return function () {

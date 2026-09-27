@@ -58,7 +58,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&family=Inter:wght@600;700;800&display=swap" rel="stylesheet">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23007acc'/%3E%3Ctext x='50' y='68' font-size='58' text-anchor='middle' fill='white' font-family='monospace'%3E%3C/%3E%3C/text%3E%3C/svg%3E">
-<link rel="stylesheet" href="./style.css?v=37">
+<link rel="stylesheet" href="./style.css?v=46">
 </head>
 <body>
 <div class="ide">
@@ -205,10 +205,9 @@
             <div class="pm-body">
 
               <div class="pm-folder">
-                <div class="pm-folder-head"><span class="folder-icon">&#128193;</span> Nymph Solution Ltd. <span class="folder-role">— Junior QA Engineer</span> <span class="pm-dates">Jun 2026 – Present</span> <span class="status-live"><span class="pulse"></span> ACTIVE</span></div>
+                <button type="button" class="pm-folder-head" aria-expanded="false" aria-controls="pm-panel-1"><span class="folder-icon">&#128193;</span> Nymph Solution Ltd. <span class="folder-role">— Junior QA Engineer</span> <span class="pm-dates">Jun 2026 – Present</span> <span class="status-live"><span class="pulse"></span> ACTIVE</span> <span class="folder-chevron">Details <i>&#9662;</i></span></button>
+                <div class="case-panel" id="pm-panel-1">
                 <div class="pm-req">
-
-                  <div class="pm-breadcrumb">Career.postman_collection / Nymph Solution Ltd. / <b>junior-qa-engineer</b></div>
 
                   <div class="pm-urlbar">
                     <span class="method get">GET</span>
@@ -253,13 +252,13 @@
                   </div>
 
                 </div>
+                </div>
               </div>
 
               <div class="pm-folder">
-                <div class="pm-folder-head"><span class="folder-icon">&#128193;</span> IT Training BD <span class="folder-role">— SQA Project Instructor</span> <span class="pm-dates">Feb 2026 – May 2026</span> <span class="status-done">COMPLETED</span></div>
+                <button type="button" class="pm-folder-head" aria-expanded="false" aria-controls="pm-panel-2"><span class="folder-icon">&#128193;</span> IT Training BD <span class="folder-role">— SQA Project Instructor</span> <span class="pm-dates">Feb 2026 – May 2026</span> <span class="status-done">COMPLETED</span> <span class="folder-chevron">Details <i>&#9662;</i></span></button>
+                <div class="case-panel" id="pm-panel-2">
                 <div class="pm-req">
-
-                  <div class="pm-breadcrumb">Career.postman_collection / IT Training BD / <b>sqa-project-instructor</b></div>
 
                   <div class="pm-urlbar">
                     <span class="method post">POST</span>
@@ -299,13 +298,13 @@
                   </div>
 
                 </div>
+                </div>
               </div>
 
               <div class="pm-folder">
-                <div class="pm-folder-head"><span class="folder-icon">&#128193;</span> CodeAlpha (Remote) <span class="folder-role">— Python Intern</span> <span class="pm-dates">Dec 2025 – Jan 2026</span> <span class="status-done">COMPLETED</span></div>
+                <button type="button" class="pm-folder-head" aria-expanded="false" aria-controls="pm-panel-3"><span class="folder-icon">&#128193;</span> CodeAlpha (Remote) <span class="folder-role">— Python Intern</span> <span class="pm-dates">Dec 2025 – Jan 2026</span> <span class="status-done">COMPLETED</span> <span class="folder-chevron">Details <i>&#9662;</i></span></button>
+                <div class="case-panel" id="pm-panel-3">
                 <div class="pm-req">
-
-                  <div class="pm-breadcrumb">Career.postman_collection / CodeAlpha (Remote) / <b>python-intern</b></div>
 
                   <div class="pm-urlbar">
                     <span class="method get">GET</span>
@@ -344,6 +343,7 @@
                   </div>
 
                 </div>
+                </div>
               </div>
 
             </div>
@@ -363,8 +363,13 @@
                     <div class="feature-name">VLM Run — AI/VLM Application Testing</div>
                     <div class="feature-tag">In Progress · QA-150</div>
                   </div>
-                  <a class="btn btn-ghost feature-cta" href="https://vlm.run" target="_blank" rel="noopener">&#128279; Project Site</a>
+                  <div class="feature-actions">
+                    <a class="btn btn-ghost feature-cta" href="https://vlm.run" target="_blank" rel="noopener">&#128279; Project Site</a>
+                    <button type="button" class="folder-chevron feature-toggle" aria-expanded="false" aria-controls="feature-panel-1">Details <i>&#9662;</i></button>
+                  </div>
                 </div>
+                <div class="case-panel" id="feature-panel-1">
+                <div class="feature-body">
                 <div class="feature-stage">
                   <div class="stage-label">WHAT I TESTED</div>
                   <p>VLM Run's AI/VLM application — the Gateway, API workflows, and Model Context Protocol (MCP) integrations with Claude.</p>
@@ -378,6 +383,8 @@
                   <div class="stage-label">EVIDENCE</div>
                   <p>Identified <b>100+ defects</b> prior to release across the platform's AI workflows and APIs.</p>
                 </div>
+                </div>
+                </div>
               </div>
 
               <div class="feature-card">
@@ -386,8 +393,13 @@
                     <div class="feature-name">End-to-End Automation Framework</div>
                     <div class="feature-tag">Done · QA-101</div>
                   </div>
-                  <a class="btn btn-ghost feature-cta" href="https://github.com/nahid-10/end_to_end_testing_framework_playwright" target="_blank" rel="noopener">&#128279; View GitHub</a>
+                  <div class="feature-actions">
+                    <a class="btn btn-ghost feature-cta" href="https://github.com/nahid-10/end_to_end_testing_framework_playwright" target="_blank" rel="noopener">&#128279; View GitHub</a>
+                    <button type="button" class="folder-chevron feature-toggle" aria-expanded="false" aria-controls="feature-panel-2">Details <i>&#9662;</i></button>
+                  </div>
                 </div>
+                <div class="case-panel" id="feature-panel-2">
+                <div class="feature-body">
                 <div class="feature-stage">
                   <div class="stage-label">WHAT I TESTED</div>
                   <p>Core user flows of a demo web app, automated as a reusable UI regression suite.</p>
@@ -400,6 +412,8 @@
                 <div class="feature-stage">
                   <div class="stage-label">EVIDENCE</div>
                   <p>Runs automatically on every push. <a href="https://github.com/nahid-10/end_to_end_testing_framework_playwright/actions" target="_blank" rel="noopener">See live CI runs &rarr;</a></p>
+                </div>
+                </div>
                 </div>
               </div>
             </div>
@@ -421,12 +435,9 @@
               <div class="jira-toolbar-top">
                 <div class="jira-logo"><span class="sq"></span> QA Board</div>
                 <div class="jira-avatars"><span class="jira-avatar">MN</span></div>
-                <button class="jira-create" type="button" aria-hidden="true" tabindex="-1">+ Create</button>
               </div>
               <div class="jira-toolbar-sub">
                 <span class="board-name">Project: PORTFOLIO &nbsp;·&nbsp; Sprint 12</span>
-                <span class="jira-search">&#128269; Search board</span>
-                <span class="jira-groupby">Group by: Status &#9662;</span>
               </div>
             </div>
 
@@ -464,7 +475,6 @@
                   </div>
                 </div>
 
-                <div class="board-add" aria-hidden="true">+ Add issue</div>
               </div>
 
               <div class="board-col">
@@ -485,7 +495,6 @@
                   </div>
                 </div>
 
-                <div class="board-add" aria-hidden="true">+ Add issue</div>
               </div>
 
               <div class="board-col">
@@ -554,14 +563,14 @@
                   </div>
                 </div>
 
-                <div class="board-add" aria-hidden="true">+ Add issue</div>
               </div>
             </div>
 
             <div class="artifact-block case-study" id="qa-evidence">
               <button type="button" class="artifact-head case-toggle-btn" aria-expanded="false" aria-controls="qa-evidence-panel">
                 <span class="artifact-tag">QA-102 evidence</span>
-                <span class="artifact-note">Test case &amp; bug report: guest cart badge didn't update after adding an item &mdash; found, reported, fixed, retested. <span class="case-toggle">Show detailed case study</span></span>
+                <span class="artifact-note">Test case &amp; bug report: guest cart badge didn't update after adding an item &mdash; found, reported, fixed, retested.</span>
+                <span class="case-toggle">Show detailed case study</span>
               </button>
               <div class="case-panel" id="qa-evidence-panel">
               <div class="artifact-cols">
@@ -614,7 +623,8 @@
             <div class="artifact-block case-study" id="qa-loadtest">
               <button type="button" class="artifact-head case-toggle-btn" aria-expanded="false" aria-controls="qa-loadtest-panel">
                 <span class="artifact-tag">Load testing — methodology</span>
-                <span class="artifact-note">Load test summary: 6-stage k6 ramp from light to breaking-point traffic; concurrency threshold identified before failures climbed. <span class="case-toggle">Show detailed case study</span></span>
+                <span class="artifact-note">Load test summary: 6-stage k6 ramp from light to breaking-point traffic; concurrency threshold identified before failures climbed.</span>
+                <span class="case-toggle">Show detailed case study</span>
               </button>
               <div class="case-panel" id="qa-loadtest-panel">
               <div class="artifact-card load-test-card">
@@ -632,17 +642,20 @@
               </div>
             </div>
 
-            <div class="artifact-block" id="qa-approach">
-              <div class="artifact-head">
+            <div class="artifact-block case-study" id="qa-approach">
+              <button type="button" class="artifact-head case-toggle-btn" aria-expanded="false" aria-controls="qa-approach-panel">
                 <span class="artifact-tag">How I decide what to automate</span>
                 <span class="artifact-note">How I actually think through a test plan before writing one.</span>
-              </div>
+                <span class="case-toggle">Show detailed case study</span>
+              </button>
+              <div class="case-panel" id="qa-approach-panel">
               <div class="strategy-card">
                 <ol class="strategy-list">
                   <li><b>Map flows by business risk, not ease of testing.</b> Checkout and auth outrank low-traffic admin screens, regardless of which is simpler to script.</li>
                   <li><b>Automate what repeats and wire it into CI; keep exploration where judgment matters.</b> Stable, high-frequency paths get Playwright/Postman suites running on every push. New or UX-sensitive features stay manual until they stabilize.</li>
                   <li><b>Triage by blast radius.</b> Who hits this, and how often, usually matters more than whatever severity got typed into the ticket — a cosmetic bug on the payment page can outrank a "major" bug on a screen nobody visits.</li>
                 </ol>
+              </div>
               </div>
             </div>
           </section>
@@ -806,6 +819,6 @@
 
 </div>
 
-<script src="./scripts.js?v=12"></script>
+<script src="./scripts.js?v=15"></script>
 </body>
 </html>
