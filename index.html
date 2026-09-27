@@ -11,7 +11,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23007acc'/%3E%3Ctext x='50' y='68' font-size='58' text-anchor='middle' fill='white' font-family='monospace'%3E%3C/%3E%3C/text%3E%3C/svg%3E">
-<link rel="stylesheet" href="./style.css?v=12">
+<link rel="stylesheet" href="./style.css?v=13">
 </head>
 <body>
 <div class="ide">
@@ -346,8 +346,8 @@
 
             <div class="artifact-block">
               <div class="artifact-head">
-                <span class="artifact-tag">QA-150 evidence</span>
-                <span class="artifact-note">Real k6 load test against the VLM Run Gateway — six stages of ramping traffic against the live audio, chat, OCR, embeddings, and image/video endpoints. Trend shown below, not exact production figures — happy to walk through the full report in an interview.</span>
+                <span class="artifact-tag">Load testing — methodology</span>
+                <span class="artifact-note">A real k6 load test I designed and ran — six stages of ramping traffic to map a service's true concurrency threshold before failures climb. Client and system details generalized here; happy to walk through the full report and methodology in an interview.</span>
               </div>
               <div class="artifact-card load-test-card">
                 <div class="artifact-card-head">LOAD TEST · 6-STAGE RAMP</div>
@@ -355,12 +355,12 @@
                   <tr><td>Light</td><td>Baseline traffic — zero failures</td></tr>
                   <tr><td>Moderate</td><td>Roughly 7&times; baseline traffic — still zero failures</td></tr>
                   <tr><td>Heavier</td><td>First failures appear</td></tr>
-                  <tr><td>High</td><td>Failure rate creeps up across multiple endpoints, not just the slowest one</td></tr>
+                  <tr><td>High</td><td>Failure rate creeps up across multiple features, not just the slowest one</td></tr>
                   <tr><td>Overload</td><td>Failures rise sharply; rate-limiting kicks in</td></tr>
                   <tr><td>Breaking point</td><td>Majority of calls fail or get rate-limited</td></tr>
                 </table>
               </div>
-              <p class="artifact-bottomline">Bottom line: the ramp mapped a clear concurrency threshold where failure rates start climbing, and a sharper cliff further out where the gateway can no longer keep up — giving the team a real, evidence-based capacity boundary instead of a guess.</p>
+              <p class="artifact-bottomline">Bottom line: the ramp mapped a clear concurrency threshold where failure rates start climbing, and a sharper cliff further out where the service can no longer keep up — giving the team a real, evidence-based capacity boundary instead of a guess.</p>
             </div>
 
             <div class="artifact-block">
@@ -540,6 +540,6 @@
 
 </div>
 
-<script src="./scripts.js?v=9"></script>
+<script src="./scripts.js?v=10"></script>
 </body>
 </html>

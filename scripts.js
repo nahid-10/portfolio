@@ -221,8 +221,9 @@
     terminalPanel.classList.remove("open");
   });
 
-  // auto-run once, shortly after load, so first-time visitors see it happen
+  // auto-run once, shortly after load, so first-time visitors see it happen —
+  // but not on small screens, where the panel would cover the whole page
   setTimeout(function () {
-    if (!running) openTerminal();
+    if (!running && window.innerWidth > 720) openTerminal();
   }, 1200);
 })();

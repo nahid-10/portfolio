@@ -741,7 +741,21 @@ button { font-family: var(--mono); cursor: pointer; }
   .about-grid { flex-direction: column; }
   .about-photo-card, .hero-photo-card { width: 100%; max-width: 260px; margin: 0 auto; }
   .h-title { font-size: 26px; }
-  .terminal-panel { height: 50vh; }
+  .terminal-panel { height: 38vh; max-height: 320px; }
+  .terminal-body { font-size: 11.5px; padding: 10px 12px; }
+  .terminal-head { padding: 6px 10px; }
   .contact-cols { flex-direction: column; }
   .titlebar-search-inner span.kbd { display: none; }
+  .statusbar { font-size: 10.5px; padding: 0 6px; gap: 8px; overflow-x: auto; }
+  .statusbar .sb-left, .statusbar .sb-right { gap: 8px; }
+  .statusbar .sb-item { white-space: nowrap; }
+}
+
+@media (max-width: 420px) {
+  .hero-name { font-size: 24px; }
+  .h-title { font-size: 22px; }
+  .stat-chip { min-width: 44%; }
+  .terminal-panel { height: 42vh; }
+  .statusbar .sb-item span.kbd,
+  .statusbar .sb-left .sb-item:nth-child(2) { display: none; }
 }
