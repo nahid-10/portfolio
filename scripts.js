@@ -45,12 +45,38 @@
     }
   }
 
+  var prefersReducedMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  function playSectionTransition(el) {
+    if (prefersReducedMotion) return;
+    el.classList.remove("section-enter");
+    // force reflow so the animation restarts even if triggered again quickly
+    void el.offsetWidth;
+    el.classList.add("section-enter");
+    el.addEventListener("animationend", function handler() {
+      el.classList.remove("section-enter");
+      el.removeEventListener("animationend", handler);
+    });
+  }
+
   function scrollToSection(id) {
     var el = document.getElementById(id);
     if (!el) return;
     el.scrollIntoView({ behavior: "smooth", block: "start" });
     setActive(id);
     if (window.innerWidth <= 720) sidebar.classList.remove("open");
+
+    var triggered = false;
+    function trigger() {
+      if (triggered) return;
+      triggered = true;
+      playSectionTransition(el);
+    }
+    if ("onscrollend" in window && editorScroll) {
+      editorScroll.addEventListener("scrollend", trigger, { once: true });
+      setTimeout(trigger, 900);
+    } else {
+      setTimeout(trigger, 550);
+    }
   }
 
   tabs.forEach(function (t) {
