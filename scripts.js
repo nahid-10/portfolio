@@ -163,11 +163,11 @@
   });
   var featureCards = Array.prototype.slice.call(document.querySelectorAll(".feature-card"));
   featureCards.forEach(function (card) {
-    var btn = card.querySelector(".feature-toggle");
-    btn.addEventListener("click", function () {
+    setFolderOpen(card, ".feature-toggle", false);
+    card.addEventListener("click", function (e) {
+      if (e.target.closest("a")) return;
       setFolderOpen(card, ".feature-toggle", !card.classList.contains("open"));
     });
-    setFolderOpen(card, ".feature-toggle", false);
   });
 
   function debounce(fn, wait) {
